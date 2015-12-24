@@ -32,26 +32,35 @@ public class ToolBarActivity extends AppCompatActivity {
             LayoutInflater.from(this).inflate(layoutResID, (ViewGroup) findViewById(R.id.root_layout));
         }
 
-
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
         setSupportActionBar(mToolbar); //use toolbar instead of actionBar
         mToolbar.setTitle(R.string.app_name); //main title
         mToolbar.setSubtitle(R.string.title_activity_main); //sub title
-        mToolbar.setNavigationIcon(R.mipmap.tb_navigation_icon);
+//        mToolbar.setNavigationIcon(R.mipmap.tb_navigation_icon);
         mToolbar.setLogo(R.mipmap.tb_logo_icon);
 
         mToolbar.setOnMenuItemClickListener(onMenuItemClick);
 
-       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
                 R.string.drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        initView();
+
+
+
 
     }
+
+    public void initView(){
+
+
+    }
+
 
 
 

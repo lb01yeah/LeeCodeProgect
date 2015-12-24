@@ -25,7 +25,7 @@ public class MainActivity extends ToolBarActivity {
 
         mLoginButton = (Button) findViewById(R.id.main_login_btn);
 
- mLoginButton.setOnClickListener(new View.OnClickListener() {
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
