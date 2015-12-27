@@ -27,13 +27,12 @@ public class ToolBarActivity extends AppCompatActivity {
 
     @Override
     public void setContentView(int layoutResID) {
-        super.setContentView(R.layout.activity_tool_bar);
+        super.setContentView(R.layout.base_layout);
         if (layoutResID > 0) {
             LayoutInflater.from(this).inflate(layoutResID, (ViewGroup) findViewById(R.id.root_layout));
         }
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
 
         setSupportActionBar(mToolbar); //use toolbar instead of actionBar
         mToolbar.setTitle(R.string.app_name); //main title
@@ -43,12 +42,13 @@ public class ToolBarActivity extends AppCompatActivity {
 
         mToolbar.setOnMenuItemClickListener(onMenuItemClick);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//在toolsbar增加侧边栏返回键控制开关，收回按钮
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.drawer_open,
-                R.string.drawer_close);
-        mDrawerToggle.syncState();
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,mToolbar, R.string.drawer_open,
+                R.string.drawer_close); //控制侧滑点击可以展现出来
+        mDrawerToggle.syncState();//侧滑控制开关打开状态按钮
+        mDrawerLayout.setDrawerListener(mDrawerToggle);//监听点击打开、收回按钮效果
+
         initView();
 
 
