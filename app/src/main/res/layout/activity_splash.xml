@@ -9,4 +9,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.lee.android.splashscreen.SplashActivity">
 
+    <ImageView
+        android:id="@+id/splash_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ProgressBar
+        android:id="@+id/splash_pb"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
 </RelativeLayout>
