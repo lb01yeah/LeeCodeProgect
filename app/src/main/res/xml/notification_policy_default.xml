@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<notification-permision-default version="1">
+
+    <ranking version="1">
+        <package
+            name="com.caf.fmradio"
+            banner="true"
+            keyguard="true"
+            peekable="false"
+            priority="3"
+            statusbar="true"
+            subscript="true"
+            uid="1000" />
+        <package
+            name="com.feixun.market"
+            banner="true"
+            keyguard="true"
+            subscript="true"
+            uid="10057" />
+        <package
+            name="com.phicomm.music.main"
+            banner="true"
+            keyguard="true"
+            uid="10073" />
+        <package
+            name="com.phicomm.deskclock"
+            banner="true"
+            subscript="true"
+            uid="10048" />
+        <package
+            name="jp.naver.line.android"
+            banner="true"
+            keyguard="true"
+            subscript="true"
+            uid="10096" />
+        <package
+            name="com.android.contacts"
+            banner="true"
+            keyguard="true"
+            priority="2"
+            subscript="true"
+            uid="10002" />
+        <package
+            name="com.whatsapp"
+            keyguard="true"
+            uid="10094" />
+        <package
+            name="com.tencent.mm"
+            keyguard="true"
+            uid="10093" />
+        <package
+            name="com.phicomm.security"
+            banner="true"
+            subscript="true"
+            uid="1000" />
+        <package
+            name="com.phicomm.notes"
+            subscript="true"
+            uid="10058" />
+        <package
+            name="com.android.phicomm.barometer"
+            keyguard="true"
+            subscript="true"
+            uid="10042" />
+        <package
+            name="com.iflytek.cmcc"
+            banner="true"
+            keyguard="true"
+            subscript="true"
+            uid="10087" />
+        <package
+            name="com.android.mms"
+            keyguard="true"
+            peekable="false"
+            priority="2"
+            subscript="true"
+            uid="10008" />
+        <package
+            name="com.phicomm.soundrecorder"
+            banner="true"
+            keyguard="true"
+            subscript="true"
+            uid="10074" />
+        <package
+            name="com.baidu.browser.apps"
+            subscript="true"
+            uid="10020" />
+        <package
+            name="jp.co.optim.oruphcm01"
+            subscript="true"
+            uid="10037" />
+        <package
+            name="com.android.calendar"
+            peekable="false"
+            priority="2"
+            statusbar="false"
+            uid="10023" />
+        <package
+            name="com.android.email"
+            subscript="true"
+            uid="10027" />
+        <package
+            name="com.phicomm.customerservice"
+            subscript="true"
+            uid="10047" />
+        <package
+            name="com.android.settings"
+            subscript="true"
+            uid="1000" />
+        <package
+            name="com.tencent.mobileqq"
+            banner="true"
+            keyguard="true"
+            subscript="true"
+            uid="10092" />
+        <package
+            name="com.immomo.momo"
+            keyguard="false"
+            peekable="false"
+            uid="10095" />
+    </ranking>
+
+</notification-permision-default>

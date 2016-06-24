@@ -1,9 +1,9 @@
 package com.lee.android.base;
 
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,7 +18,8 @@ public class ToolBarActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
-    private  ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle mDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +51,7 @@ public class ToolBarActivity extends AppCompatActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);//监听点击打开、收回按钮效果
 
         initView();
-
-
-
-
     }
-
-    public void initView(){
-
-
-    }
-
 
 
 
@@ -94,5 +85,12 @@ public class ToolBarActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+    public void initView(){
+
+
+
+    }
+
 
 }

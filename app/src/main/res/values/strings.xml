@@ -10,6 +10,9 @@
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
 
+    <string name="read_xml_btn01">ReadXML_01</string>
+    <string name="read_xml_btn02">ReadXML_02</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
@@ -22,4 +25,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- 属性动画-->
+
 </resources>
