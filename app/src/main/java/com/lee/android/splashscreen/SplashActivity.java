@@ -72,7 +72,8 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    //内部类
+    //内部类在需要更新进度值时，AsyncTask的基本生命周期过程为：
+    // onPreExecute() --> doInBackground() --> publishProgress() --> onProgressUpdate() --> onPostExecute()
     public class MyAsyncTask extends AsyncTask<String, Integer, Bitmap> {
         private ProgressBar mProgressBar;//
         private ImageView mImageView;
@@ -82,12 +83,16 @@ public class SplashActivity extends AppCompatActivity {
             mImageView = iv;
         }
 
+
+        //在执行后台doInBackground操作之前执行，运行在主线程中
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressBar.setVisibility(View.VISIBLE);
         }
 
+        //核心方法，执行后台下载操作的方法，运行在子线程中；如果我们想向用户展示文件的下载进度情况，这时，我们可以在doInBackground()下载操作中，
+        // 调用publishProgress()，将当前进度值传入该方法，而publishProgress()内部会去调用AsyncTask的另一个回调方法：
         @Override
         protected Bitmap doInBackground(String... params) {
             String urlParams = params[0];//拿到execute()传过来的图片url
@@ -129,12 +134,14 @@ public class SplashActivity extends AppCompatActivity {
                 Thread.sleep(100);//为了看清效果，睡眠一段时间  */
         }
 
+        //在下载操作doInBackground()中调用publishProgress()时候的回调方法，更新下载进度，运行在主线程中
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             mProgressBar.setProgress(values[0]);
         }
 
+        //后台操作完成后调用，运行在主线程中
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
