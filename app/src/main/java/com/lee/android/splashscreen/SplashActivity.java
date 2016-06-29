@@ -4,17 +4,20 @@ package com.lee.android.splashscreen;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.lee.android.MainActivity;
 import com.lee.android.R;
 import com.lee.android.base.NetworkInfoUtil;
 
@@ -31,6 +34,8 @@ public class SplashActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private static String URL = "http://c.hiphotos.baidu.com/baike/s%3D220/sign=86442af5a6c27d1ea1263cc62bd4adaf/42a98226cffc1e17d8f914604890f603738de919.jpg";
     private MyAsyncTask asyncTask;
+    private Button mBtnLoader;
+    private Button mBtnLoaderMain;
 
     private static final int FAILURE = 0; // 失败
     private static final int SUCCESS = 1; // 成功
@@ -45,30 +50,49 @@ public class SplashActivity extends AppCompatActivity {
 
         mImageView = (ImageView) findViewById(R.id.splash_image);
         mProgressBar = (ProgressBar) findViewById(R.id.splash_pb);
+        mBtnLoader = (Button) findViewById(R.id.splash_bt);
+        mBtnLoaderMain = (Button) findViewById(R.id.splash_bt_main);
 
         asyncTask = new MyAsyncTask(mProgressBar, mImageView);
         asyncTask.execute(URL); //将图片URL作为参数传入到doInBackground()
 
+        mBtnLoader.setOnClickListener(new myClickListener());
+        mBtnLoaderMain.setOnClickListener(new myClickListener());
 
-/*        new AsyncTask<Void, Void, Integer>() {
-            //            后台的操作全部放到doInBackground方法中去,最后返回三种状态,作为后台执行的结果
-            @Override
-            protected Integer doInBackground(Void... params) {
-                int result;
+        /*        使用小结：
+        （1）AsyncTask中，只有doInBackground()方法是处于子线程中运行的，其他三个回调onPreExecute()、onPostExecute()、onProgressUpdate()
+        都是在UI线程中进行，因此在这三个方法里面可以进行UI的更新工作；
+        （2）每一个new出的AsyncTask只能执行一次execute()方法，多次运行将会报错，如需多次，需要新new一个AsyncTask；
+        （3）AsyncTask必须在UI线程中创建实例，execute()方法也必须在UI线程中调用；*/
 
-                result = loadingCache();
+    }
 
-                return result;
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(asyncTask!=null&&asyncTask.getStatus() == AsyncTask.Status.RUNNING){
+            asyncTask.cancel(true);//cancel只是将对应的任务标记为取消状态，在doInBackground()中进行检测下载任务，一旦检测到任务被用户取消，立即停止doInbackground()方法。
+        }
+    }
+
+    private class myClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            //        asyncTask.execute(URL); //点击再次加载图片，程序报错，因为一个AsyncTask多次执行exectue()将会报错。
+
+            switch (v.getId()){
+                case R.id.splash_bt:
+                Intent i = new Intent(mContext, SplashActivity.class);
+                startActivity(i);
+                    break;
+                case R.id.splash_bt_main:
+                    Intent intent = new Intent(mContext, MainActivity.class);
+                    startActivity(intent);
+                    break;
+
             }
 
-            @Override
-            protected void onPostExecute(Integer integer) {
-                super.onPostExecute(integer);
-            }
-        }.execute(new Void[]{});
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();*/
+        }
 
     }
 
@@ -106,6 +130,9 @@ public class SplashActivity extends AppCompatActivity {
 
                 //这里只是为了演示更新进度的功能，实际的进度值需要在从输入流中读取时逐步获取
                 for (int i = 0; i < 100; i++) {
+                    if(isCancelled()){   //通过isCancelled()判断任务任务是否被取消
+                        break;
+                    }
                     publishProgress(i);
                     Thread.sleep(50);//为了看清效果，睡眠一段时间
                 }
@@ -138,6 +165,9 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
+            if(isCancelled()){
+                return;
+            }
             mProgressBar.setProgress(values[0]);
         }
 
