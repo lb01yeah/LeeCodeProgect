@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.lee.android.R;
 
-public class ToolBarActivity extends AppCompatActivity {
+public abstract class ToolBarActivity extends AppCompatActivity {
 
 
     private Toolbar mToolbar;

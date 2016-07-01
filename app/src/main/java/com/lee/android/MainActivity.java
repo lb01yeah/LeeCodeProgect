@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.lee.android.base.ToolBarActivity;
+import com.lee.android.nohttp.StartActivity;
 import com.lee.android.readxml.ReadXmlFile;
 import com.lee.android.readxml.ReadXmlResources;
 
@@ -32,6 +33,7 @@ public class MainActivity extends ToolBarActivity {
     private Button mReadXMLButton01;
     private Button mReadXMLButton02;
     private TextView mXmlValue;
+    private Button mNoHttpButton;
 
     //for pull xml
     // Persistent storage for notification policy
@@ -83,6 +85,7 @@ public class MainActivity extends ToolBarActivity {
         mLoginButton = (Button) findViewById(R.id.main_login_btn);
         mReadXMLButton01 = (Button) findViewById(R.id.main_readxml_btn01);//第一种读取方式
         mReadXMLButton02 = (Button) findViewById(R.id.main_readxml_btn02);//第二种读取方式
+        mNoHttpButton = (Button) findViewById(R.id.main_nohttp_btn); //nohttp 使用方式
 
         mXmlValue = (TextView) findViewById(R.id.xml_read_value);
 
@@ -120,6 +123,15 @@ public class MainActivity extends ToolBarActivity {
             @Override
             public void onClick(View v) {
                 ReadXmlFile rxFile = new ReadXmlFile(getContext());
+            }
+        });
+
+        mNoHttpButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, StartActivity.class);
+                startActivity(intent);
             }
         });
 
