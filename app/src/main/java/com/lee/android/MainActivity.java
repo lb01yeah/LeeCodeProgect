@@ -3,24 +3,16 @@ package com.lee.android;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.XmlResourceParser;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.AtomicFile;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.lee.android.base.ToolBarActivity;
-import com.lee.android.nohttp.StartActivity;
+import com.lee.android.nohttps.activity.StartActivity;
 import com.lee.android.readxml.ReadXmlFile;
 import com.lee.android.readxml.ReadXmlResources;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
 
 
 public class MainActivity extends ToolBarActivity {

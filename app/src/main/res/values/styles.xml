@@ -21,6 +21,21 @@
         <item name="android:windowAnimationStyle">@style/Widget.Design.CoordinatorLayout</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
     <style name="WrapContent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -28,6 +43,24 @@
 
     <style name="WrapContent.WidthMatchParent">
         <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ButtonWrapContent" parent="@style/Widget.AppCompat.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="ButtonWrapContent.WidthMatch">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="WrapContent.WidthMatchParent.RecyclerItem">
+<!--        <item name="cardCornerRadius">@dimen/dp_5</item>
+        <item name="cardElevation">@dimen/dp_5</item>
+        <item name="contentPadding">@dimen/dp_15</item>-->
+    </style>
+    <style name="WrapContent.WidthMatchParent.RecyclerItem.Foreground">
+        <item name="android:foreground">@drawable/selector_recycler_item</item>
     </style>
 
 </resources>
