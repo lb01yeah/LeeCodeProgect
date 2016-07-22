@@ -28,6 +28,12 @@
         completions."
     </string>
 
-    <!-- 属性动画-->
+    <!-- camera-->
+    <string name="camera_name">camera</string>
+    <string name="newcamera_zoomup">+</string>
+    <string name="newcamera_zoomdown">-</string>
+    <string name="Camera_takepic">拍照</string>
+    <string name="Success">成功</string>
+    <string name="Failed">失败</string>
 
 </resources>

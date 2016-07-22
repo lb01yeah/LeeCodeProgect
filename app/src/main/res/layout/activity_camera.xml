@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.15">
+        <com.lee.android.camera.CameraPreview
+            android:id="@+id/cp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="15.0dip" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.85">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="300.0dip"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/newcamera_zoomup"
+                android:layout_width="60.0dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1.0"
+                android:text="@string/newcamera_zoomup"
+                android:textSize="40.0dip" />
+            <Button
+                android:id="@+id/newcamera_zoomdown"
+                android:layout_width="60.0dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1.0"
+                android:text="@string/newcamera_zoomdown"
+                android:textSize="40.0dip" />
+            <Button
+                android:id="@+id/newcamera_take"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1.0"
+                android:text="@string/Camera_takepic"
+                android:textColor="@color/title_ground_normal"
+                android:textSize="40.0dip" />
+        </LinearLayout>
+        <Button android:id="@+id/newcamera_btok"
+            android:layout_width="wrap_content"
+            android:layout_height="200.0dip"
+            android:layout_alignParentRight="true"
+            android:text="@string/Success"
+            android:textSize="40.0dip" />
+        <Button
+            android:id="@+id/newcamera_btfailed"
+            android:layout_width="wrap_content"
+            android:layout_height="200.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/Failed"
+            android:textSize="40.0dip" />
+    </RelativeLayout>
+</LinearLayout>

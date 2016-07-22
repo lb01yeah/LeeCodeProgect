@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.lee.android.base.ToolBarActivity;
+import com.lee.android.camera.CameraActivity;
 import com.lee.android.nohttps.activity.StartActivity;
 import com.lee.android.readxml.ReadXmlFile;
 import com.lee.android.readxml.ReadXmlResources;
@@ -26,6 +27,7 @@ public class MainActivity extends ToolBarActivity {
     private Button mReadXMLButton02;
     private TextView mXmlValue;
     private Button mNoHttpButton;
+    private Button mCameraButton;
 
     //for pull xml
     // Persistent storage for notification policy
@@ -78,6 +80,7 @@ public class MainActivity extends ToolBarActivity {
         mReadXMLButton01 = (Button) findViewById(R.id.main_readxml_btn01);//第一种读取方式
         mReadXMLButton02 = (Button) findViewById(R.id.main_readxml_btn02);//第二种读取方式
         mNoHttpButton = (Button) findViewById(R.id.main_nohttp_btn); //nohttp 使用方式
+        mCameraButton = (Button) findViewById(R.id.main_camera_btn); //camera Test
 
         mXmlValue = (TextView) findViewById(R.id.xml_read_value);
 
@@ -123,6 +126,14 @@ public class MainActivity extends ToolBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, StartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mCameraButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CameraActivity.class);
                 startActivity(intent);
             }
         });

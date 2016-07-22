@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <!--
         <permission android:name="android.permission.WRITE_MEDIA_STORAGE">
         <group gid="sdcard_r"/>
@@ -60,6 +64,15 @@
             android:name=".nohttps.activity.OriginalActivity"
             android:label="@string/title_original_activity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".camera.CameraActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/camera_name"
+            android:screenOrientation="landscape"
+            android:taskAffinity="android.task.camera"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
     </application>
 
