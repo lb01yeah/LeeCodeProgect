@@ -72,6 +72,12 @@
         android:layout_height="wrap_content"
         android:text="@string/camera_name"/>
 
+    <Button
+        android:id="@+id/main_camera2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_name2"/>
+
 
 
 </LinearLayout>

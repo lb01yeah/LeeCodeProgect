@@ -152,7 +152,8 @@ public class CameraPreview extends SurfaceView implements Callback {
             if (localObject1 != null) {
                 this.mCameraParam.setPreviewSize(((Size)localObject1).width, ((Size)localObject1).height);
             }
-            this.mCameraParam.setFlashMode("torch");
+//            this.mCameraParam.setFlashMode("torch");
+//            this.mCameraParam.setFlashMode("off");
             this.mCameraParam.set("fps-mode", 0);
             this.mCameraParam.set("cam-mode", 0);
             this.mCamera.setParameters(this.mCameraParam);

@@ -19,12 +19,12 @@
         android:layout_weight="0.85">
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="300.0dip"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical">
             <Button
                 android:id="@+id/newcamera_zoomup"
-                android:layout_width="60.0dip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_weight="1.0"
@@ -32,7 +32,7 @@
                 android:textSize="40.0dip" />
             <Button
                 android:id="@+id/newcamera_zoomdown"
-                android:layout_width="60.0dip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_weight="1.0"
@@ -50,14 +50,14 @@
         </LinearLayout>
         <Button android:id="@+id/newcamera_btok"
             android:layout_width="wrap_content"
-            android:layout_height="200.0dip"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:text="@string/Success"
             android:textSize="40.0dip" />
         <Button
             android:id="@+id/newcamera_btfailed"
             android:layout_width="wrap_content"
-            android:layout_height="200.0dip"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:text="@string/Failed"
