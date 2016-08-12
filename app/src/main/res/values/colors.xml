@@ -50,4 +50,6 @@
     <color name="yellow_weibo_normal">#FFFCDA53</color>
     <color name="yellow_weibo_pressed">#FFDAB831</color>
 
+    <color name="control_background">#cc4285f4</color>
+
 </resources>
