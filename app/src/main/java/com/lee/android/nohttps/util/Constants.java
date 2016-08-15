@@ -40,7 +40,7 @@ public class Constants {
             SERVER = "http://192.168.100.104/HttpServer/";
         } else {
 //            SERVER = "http://api.nohttp.net/";
-            SERVER = "http://10.0.2.2:8080/HttpServer/";//访问本机地址需要修改模拟器hosts文件
+            SERVER = "http://192.168.1.3:8080/HttpServer/";//访问本机地址需要修改模拟器hosts文件
         }
     }
 

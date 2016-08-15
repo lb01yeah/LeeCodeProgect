@@ -27,6 +27,7 @@ public class ListRecyclerView extends RecyclerView{
     protected void onFinishInflate() {
         super.onFinishInflate();
         setItemAnimator(null);// Fix update progress falsh.
+        //添加分割线
         addItemDecoration(new ListRecyclerCardItemDecoration());
         setLayoutManager(new LinearLayoutManager(getContext()));
     }

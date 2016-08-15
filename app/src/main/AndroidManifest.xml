@@ -28,8 +28,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait" >
 
             <!--
                 <intent-filter>
@@ -66,13 +68,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".camera.CameraActivity"
-            android:clearTaskOnLaunch="true"
-            android:configChanges="keyboardHidden|orientation"
-            android:label="@string/camera_name"
             android:screenOrientation="landscape"
-            android:taskAffinity="android.task.camera"
+            android:label="@string/camera_name"
+
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".camera2.Camera2Activity" />
+
+<!--        android:clearTaskOnLaunch="true"
+            android:taskAffinity="android.task.camera"
+        android:configChanges="keyboardHidden|orientation"-->
 
         <receiver android:name=".AppUpdate.SystemUpdate" >
     　　　　<intent-filter>
