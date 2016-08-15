@@ -74,12 +74,19 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".camera2.Camera2Activity" />
 
-        <receiver android:name=".AppUpdate.SystemUpdate" >
-    　　　　<intent-filter>
-    　　　　　　<action android:name="com.lee.android.AppUpdate"></action>
-    　　　   </intent-filter>
+        <receiver android:name=".AppUpdate.SystemUpdate">
+
+            　　　　
+            <intent-filter>
+
+                　　　　　　
+                <action android:name="com.lee.android.AppUpdate" />
+
+                　　　
+            </intent-filter>
         </receiver>
 
+        <activity android:name=".recycler.RecyclerActivity"></activity>
     </application>
 
 </manifest>
