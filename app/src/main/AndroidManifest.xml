@@ -29,7 +29,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
 
             <!--
                 <intent-filter>
@@ -79,6 +80,8 @@
     　　　　　　<action android:name="com.lee.android.AppUpdate"></action>
     　　　   </intent-filter>
         </receiver>
+
+        <activity android:name=".recycler.RecyclerActivity"></activity>
 
     </application>
 
