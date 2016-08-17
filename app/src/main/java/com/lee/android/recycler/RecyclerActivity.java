@@ -2,9 +2,14 @@ package com.lee.android.recycler;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 
 import com.lee.android.R;
@@ -26,6 +31,61 @@ public class RecyclerActivity extends AppCompatActivity {
 
         initData();
         initView();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_recyclerview_option,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.linear) {
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RecyclerActivity.this);
+            linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+            mRecyclerView.setLayoutManager(linearLayoutManager);
+            mRecyclerAdapter.setSmallType(false);
+            mRecyclerView.setAdapter(mRecyclerAdapter);
+
+        } else if (itemId == R.id.grid) {
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(RecyclerActivity.this, 3);
+            gridLayoutManager.setOrientation(GridLayoutManager.HORIZONTAL);
+            mRecyclerView.setLayoutManager(gridLayoutManager);
+            mRecyclerAdapter.setSmallType(true);
+            mRecyclerView.setAdapter(mRecyclerAdapter);
+
+        } else if (itemId == R.id.staggered) {
+            StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+            mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
+            mRecyclerAdapter.setSmallType(true);
+            mRecyclerView.setAdapter(mRecyclerAdapter);
+
+        } else if (itemId == R.id.insert_item) {
+            mRecyclerAdapter.notifyItemInserted(2);
+
+        } else if (itemId == R.id.delete_item) {
+            mRecyclerAdapter.notifyItemChanged(3);
+
+        } else if (itemId == R.id.update_item) {
+            RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+            if (layoutManager instanceof LinearLayoutManager) {
+                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
+                int position = linearLayoutManager.findFirstCompletelyVisibleItemPosition();//获取第一个完全可见的Item的位置
+                if (RecyclerView.NO_POSITION != position) {
+                    ContentInfo authorInfo = mContentInfoList.get(position);
+                    authorInfo.setNickName("Android");
+                    authorInfo.setMotto("I am Android Man!");
+                    authorInfo.setPortrait(R.mipmap.ic_launcher);
+                    mRecyclerAdapter.notifyItemChanged(position);
+                }
+
+            }
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initData() {

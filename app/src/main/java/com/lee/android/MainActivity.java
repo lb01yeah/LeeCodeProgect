@@ -8,16 +8,20 @@ import android.util.AtomicFile;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lee.android.base.ToolBarActivity;
 import com.lee.android.camera.CameraActivity;
 import com.lee.android.camera2.Camera2Activity;
+import com.lee.android.listView.ListViewActivity;
 import com.lee.android.nohttps.activity.StartActivity;
 import com.lee.android.readxml.ReadXmlFile;
 import com.lee.android.readxml.ReadXmlResources;
+import com.lee.android.recycler.RecyclerActivity;
+import com.lee.android.services.MusicService;
 
 
-public class MainActivity extends ToolBarActivity {
+public class MainActivity extends ToolBarActivity implements View.OnClickListener {
 
     private static Context mContext;
 
@@ -30,6 +34,10 @@ public class MainActivity extends ToolBarActivity {
     private Button mNoHttpButton;
     private Button mCameraButton;
     private Button mCameraButton2;
+    private Button mServiceStart;
+    private Button mServiceStop;
+    private Button mRecyclerView;
+    private Button mListView;
 
     //for pull xml
     // Persistent storage for notification policy
@@ -84,6 +92,15 @@ public class MainActivity extends ToolBarActivity {
         mNoHttpButton = (Button) findViewById(R.id.main_nohttp_btn); //nohttp 使用方式
         mCameraButton = (Button) findViewById(R.id.main_camera_btn); //camera Test
         mCameraButton2 = (Button) findViewById(R.id.main_camera2_btn); //camera2 Test
+        mServiceStart = (Button) findViewById(R.id.main_service_start_btn); //start service
+        mServiceStop = (Button) findViewById(R.id.main_service_stop_btn); //stop service
+        mRecyclerView = (Button) findViewById(R.id.main_recyclerView_btn); //RecyclerView
+        mListView = (Button) findViewById(R.id.main_listview_btn);
+
+        mRecyclerView.setOnClickListener(this);
+        mListView.setOnClickListener(this);
+        mServiceStop.setOnClickListener(this);
+        mServiceStart.setOnClickListener(this);
 
         mXmlValue = (TextView) findViewById(R.id.xml_read_value);
 
@@ -148,7 +165,39 @@ public class MainActivity extends ToolBarActivity {
                 startActivity(intent);
             }
         });
+//        mRecyclerView.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext, RecyclerActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+//      此点击事件使用之前应当先注册
+        switch(v.getId()){
+            case R.id.main_service_start_btn:
+                Intent intent1 = new Intent(MainActivity.this,MusicService.class);
+                startService(intent1);
+                break;
+            case R.id.main_service_stop_btn:
+                Intent intent2 = new Intent(MainActivity.this,MusicService.class);
+                stopService(intent2);
+                break;
+            case R.id.main_recyclerView_btn:
+                Intent intent3 = new Intent(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.main_listview_btn:
+                Intent intent4 = new Intent(mContext, ListViewActivity.class);
+                startActivity(intent4);
+                break;
+            default:
+                break;
+        }
     }
 
     //End:initView

@@ -29,7 +29,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
 
             <!--
@@ -75,13 +76,29 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".camera2.Camera2Activity" />
 
-        <receiver android:name=".AppUpdate.SystemUpdate" >
-    　　　　<intent-filter>
-    　　　　　　<action android:name="com.lee.android.AppUpdate"></action>
-    　　　   </intent-filter>
+        <receiver android:name=".AppUpdate.SystemUpdate">　　　　
+            <intent-filter>
+                <action android:name="com.lee.android.AppUpdate" />　　　
+            </intent-filter>
         </receiver>
 
-        <activity android:name=".recycler.RecyclerActivity"></activity>
+        <activity
+            android:name=".recycler.RecyclerActivity"
+            android:theme="@style/AppTheme2"></activity>
+
+        <activity android:name=".listView.ListViewActivity"
+            android:theme="@style/AppTheme2"></activity>
+
+        <service
+            android:name=".services.MusicService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".services.PlayerReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
 
     </application>
 
